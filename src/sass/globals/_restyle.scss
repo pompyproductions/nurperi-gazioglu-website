@@ -1,27 +1,39 @@
+@use "mixins" as *;
+
 body {
     color: var(--black);
     background-color: var(--offwhite);
     display: grid;
     grid-template-rows: 1fr 1fr;
     justify-items: center;
-    padding: 1rem;
+    padding: 0 1rem;
 }
 h1, h2, h3 {
     font-family: "Unna";
-    font-size: 5rem;
 }
+
+h1 {
+    font-size: 1.8rem;
+}
+
 p {
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-family: "Poppins";
-    align-self: end;
+    text-align: center;
+    // align-self: end;
 }
-div {
-    position: absolute;
-    // width: 100%;
-    background-color: var(--sand);
-    bottom: 0;
-    top: 57.88vh;
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: end;
+    // align-self: end;
+}
+
+main {
     z-index: -1;
-    left: 12rem;
-    right: 12rem;
+    background-color: var(--sand);
+    width: 100%;
+    margin-top: -.5rem;
 }
