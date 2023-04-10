@@ -8,10 +8,15 @@ function buildStyles() {
         .pipe(dest("dist")) // relative path to destination folder
 }
 
+function copyHtml() {
+    return src("./src/*.html")
+        .pipe(dest("dist"))
+}
+
 // name this (watcher function) as you'd like
 function watchTask() {
     watch(["src/**/*.scss"], buildStyles) 
 }
 
-exports.build = buildStyles;
+exports.build = series(buildStyles, copyHtml);
 exports.default = series(buildStyles, watchTask);
