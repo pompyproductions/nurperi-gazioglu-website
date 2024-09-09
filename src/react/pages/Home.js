@@ -4,7 +4,7 @@ const Home = (props) => {
 
   return (
     <main>
-      <p>Content here</p>
+      <h2>Prof. Dr. Nurperi Gazioglu</h2>
     </main>
   )
 }
