@@ -5,7 +5,9 @@ const Home = (props) => {
 
   return <>
     <main>
-      <img src={PhotoNG} alt="" />
+      <div className="image-container full-width">
+        <img src={PhotoNG} alt=""/>
+      </div>
       <p>Sitemiz yapım aşamasındadır. Randevu için iletişim bilgilerini aşağıda bulabilirsiniz.</p>
       <section>
         <h3>Randevu Bilgileri</h3>

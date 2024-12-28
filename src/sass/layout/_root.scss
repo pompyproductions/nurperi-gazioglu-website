@@ -1,4 +1,5 @@
 body {
+  // background ↓
   position: relative;
   &::before {
     content: "";
@@ -6,6 +7,17 @@ body {
     position: absolute;
     background: url(~/src/assets/rockywall.png);
     z-index: -20;
+    opacity: .6;
   }
+}
 
+#root {
+  padding: var(--padding-y) var(--padding-x);
+  display: grid;
+  gap: var(--padding-y) var(--padding-x);
+}
+
+main {
+  display: grid;
+  gap: var(--gap-y) var(--gap-x);
 }
