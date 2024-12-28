@@ -1,15 +1,11 @@
 import React from "react";
-// import { Link } from "react-router-dom";
+import LogoSVG from "../../assets/LOGO.svg"
 
 const Header = () => {
   return (
     <header>
-      {/* <nav>
-        <ul>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/page">Other Page</Link></li>
-        </ul>
-      </nav> */}
+      <LogoSVG />
+      <h2>Prof. Dr. Nurperi Gazioglu</h2>
     </header>
   )
 }
