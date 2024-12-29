@@ -1,3 +1,5 @@
+@use "../globals/mixins" as *;
+
 section {
   display: grid;
   gap: var(--outer-gap-y) var(--outer-gap-x);
@@ -28,4 +30,13 @@ section {
   dt {
     white-space: nowrap;
   }
+
+  @include break-at("mobile-m") {
+
+    dl {
+      grid-template-columns: 120px 1fr;
+    }
+
+  }
+  
 }
