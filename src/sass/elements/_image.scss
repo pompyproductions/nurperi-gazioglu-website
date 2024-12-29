@@ -1,9 +1,12 @@
 .image-container {
   overflow: hidden;
   box-shadow: inset 6px 6px 10px -4px rgba(0,0,0,0.15);
+  min-height: 240px;
   img {
     position: relative;
     z-index: -5;
     height: 100%;
+    width: 100%;
+    object-fit: cover;
   }
 }

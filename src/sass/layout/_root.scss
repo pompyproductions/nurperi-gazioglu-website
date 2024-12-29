@@ -12,12 +12,15 @@ body {
 }
 
 #root {
-  padding: var(--padding-y) var(--padding-x);
+  overflow: hidden;
+  height: var(--doc-height);
   display: grid;
-  gap: var(--padding-y) var(--padding-x);
+  grid-template-rows: min-content 1fr;
 }
 
 main {
   display: grid;
+  padding: 0 var(--padding-x);
   gap: var(--gap-y) var(--gap-x);
+  overflow-y: scroll;
 }
