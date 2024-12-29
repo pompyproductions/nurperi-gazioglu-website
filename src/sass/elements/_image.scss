@@ -1,3 +1,5 @@
+@use "../globals/mixins" as *;
+
 .image-container {
   overflow: hidden;
   box-shadow: inset 6px 6px 10px -4px rgba(0,0,0,0.15);
@@ -8,5 +10,12 @@
     height: 100%;
     width: 100%;
     object-fit: cover;
+  }
+
+  @include break-at("tablet-m") {
+    grid-row: 1 / span 2;
+    height: var(--round-img-height);
+    align-self: center;
+    border-radius: 50%;
   }
 }

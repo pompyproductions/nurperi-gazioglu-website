@@ -32,11 +32,13 @@ section {
   }
 
   @include break-at("mobile-m") {
-
     dl {
       grid-template-columns: 120px 1fr;
     }
-
   }
-  
+
+  @include break-at("tablet-m") {
+    grid-column: 2;
+    align-self: start;
+  }
 }

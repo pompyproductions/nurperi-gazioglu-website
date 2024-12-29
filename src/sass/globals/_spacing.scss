@@ -1,3 +1,5 @@
+@use "mixins" as *;
+
 :root {
   --padding-x: 1.5rem;
   --padding-y: 1.5rem;
@@ -5,9 +7,20 @@
   --outer-gap-y: 1.5rem;
   --inner-gap-x: .4em;
   --inner-gap-y: .4em;
+
+  --round-img-height: 320px;
+
+  @include break-at("tablet-s") {
+    --padding-x: 2rem;
+    --padding-y: 3rem;
+  }
 }
 
 .full-width {
   margin-left: calc(var(--padding-x) * -1);
-  margin-right: calc(var(--padding-x) * -1)
+  margin-right: calc(var(--padding-x) * -1);
+
+  @include break-at("tablet-s") {
+    margin: 0;
+  }
 }

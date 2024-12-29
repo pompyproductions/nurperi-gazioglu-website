@@ -29,4 +29,16 @@ p {
   @include break-at("mobile-m") {
     font-size: 1.1rem;
   }
+  @include break-at("tablet-s") {
+    font-size: 1.2rem;
+    align-content: end;
+  }
+}
+
+dt, dd {
+  font-size: 1rem;
+
+  @include break-at("tablet-s") {
+    font-size: 1.1rem;
+  }
 }
