@@ -1,0 +1,36 @@
+@use "../globals/mixins" as *;
+
+body {
+  // background ↓
+  position: relative;
+  &::before {
+    content: "";
+    inset: 0;
+    position: absolute;
+    background: url(~/src/assets/rockywall.png);
+    z-index: -20;
+    opacity: .6;
+  }
+}
+
+#root {
+  overflow: hidden;
+  height: var(--doc-height);
+  display: grid;
+  grid-template-rows: min-content 1fr;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+main {
+  display: grid;
+  padding: 0 var(--padding-x) var(--padding-y) var(--padding-x);
+  gap: var(--outer-gap-y) var(--outer-gap-x);
+  overflow-y: scroll;
+  grid-auto-rows: min-content;
+
+  @include break-at("tablet-m") {
+    grid-template-columns: 320px 1fr;
+    grid-auto-rows: unset;
+  }
+}

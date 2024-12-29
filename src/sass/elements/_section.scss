@@ -1,0 +1,44 @@
+@use "../globals/mixins" as *;
+
+section {
+  display: grid;
+  gap: var(--outer-gap-y) var(--outer-gap-x);
+
+  h3 {
+    font-size: .8rem;
+    font-weight: 400;
+    font-style: italic;
+    white-space: nowrap;
+    
+    gap: 1em;
+    display: flex;
+    align-items: baseline;
+    &::after {
+      content: "";
+      height: 1px;
+      display: inline-block;
+      width: 100%;
+      background-color: var(--lilac)
+    }
+  }
+
+  dl {
+    display: grid;
+    gap: var(--inner-gap-y) var(--inner-gap-x);
+    grid-template-columns: 1fr min-content;
+  }
+  dt {
+    white-space: nowrap;
+  }
+
+  @include break-at("mobile-m") {
+    dl {
+      grid-template-columns: 120px 1fr;
+    }
+  }
+
+  @include break-at("tablet-m") {
+    grid-column: 2;
+    align-self: start;
+  }
+}

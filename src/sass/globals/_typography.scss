@@ -1,0 +1,51 @@
+@use "mixins" as *;
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
+
+body {
+  font-family: "Crimson Text", serif;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: 0.02em;
+  color: var(--violet);
+}
+
+.smaller {
+  font-size: .75em;
+}
+
+h2 {
+  font-weight: 400;
+  font-size: 1.25rem;
+  line-height: 1.2;
+
+  @include break-at("mobile-m") {
+    font-size: 1.5rem;
+  }
+}
+
+p {
+  font-size: 1rem;
+
+  @include break-at("mobile-m") {
+    font-size: 1.1rem;
+  }
+  @include break-at("tablet-s") {
+    font-size: 1.2rem;
+    align-content: end;
+  }
+}
+
+dt, dd {
+  font-size: 1rem;
+
+  @include break-at("tablet-s") {
+    font-size: 1.1rem;
+  }
+}
+
+a {
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline var(--lilac);
+  }
+}
