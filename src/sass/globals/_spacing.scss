@@ -1,8 +1,10 @@
 :root {
   --padding-x: 1.5rem;
   --padding-y: 1.5rem;
-  --gap-x: 1.5rem;
-  --gap-y: 1.5rem;
+  --outer-gap-x: 1.5rem;
+  --outer-gap-y: 1.5rem;
+  --inner-gap-x: .4em;
+  --inner-gap-y: .4em;
 }
 
 .full-width {

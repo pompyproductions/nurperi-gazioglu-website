@@ -20,7 +20,8 @@ body {
 
 main {
   display: grid;
-  padding: 0 var(--padding-x);
-  gap: var(--gap-y) var(--gap-x);
+  padding: 0 var(--padding-x) var(--padding-y) var(--padding-x);
+  gap: var(--outer-gap-y) var(--outer-gap-x);
   overflow-y: scroll;
+
 }
