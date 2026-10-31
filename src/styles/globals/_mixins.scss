@@ -33,3 +33,12 @@ $breakpoints: (
     -moz-user-select: none;
     -webkit-tap-highlight-color: transparent;
 }
+
+// 100dvh tracks mobile browser toolbars; @supports keeps the minifier
+// from merging it with (and dropping) the 100vh fallback
+@mixin full-height {
+    height: 100vh;
+    @supports (height: 100dvh) {
+        height: 100dvh;
+    }
+}

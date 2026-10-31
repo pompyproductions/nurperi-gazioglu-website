@@ -15,8 +15,7 @@ body {
 
 .page {
   overflow: hidden;
-  height: 100vh; // fallback
-  height: 100dvh;
+  @include full-height;
   display: grid;
   grid-template-rows: min-content 1fr;
   max-width: 1440px;
