@@ -1,8 +1,13 @@
 ---
 import Logo from "../assets/logo.svg";
+import Nav from "./Nav.astro";
+import { routes } from "../i18n/routes";
 ---
 
 <header>
-  <Logo aria-hidden="true" />
-  <p class="name"><span class="smaller">Prof. Dr.</span><br />Nurperi Gazioğlu</p>
+  <a class="brand" href={routes.home}>
+    <Logo aria-hidden="true" />
+    <p class="name"><span class="smaller">Prof. Dr.</span><br />Nurperi Gazioğlu</p>
+  </a>
+  <Nav />
 </header>

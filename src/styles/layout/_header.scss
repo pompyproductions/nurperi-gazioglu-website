@@ -1,8 +1,35 @@
+@use "../globals/mixins" as *;
+
 header {
   padding: var(--padding-y) var(--padding-x);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--outer-gap-y) var(--outer-gap-x);
+
+  .brand:hover {
+    text-decoration: none;
+  }
+
   svg {
     width: 60px;
   }
 
+  nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .25rem 1.25rem;
+  }
 
+  nav a {
+    font-size: 1rem;
+    @include break-at("tablet-s") {
+      font-size: 1.1rem;
+    }
+    &[aria-current="page"] {
+      text-decoration: underline var(--violet);
+      text-underline-offset: .25em;
+    }
+  }
 }

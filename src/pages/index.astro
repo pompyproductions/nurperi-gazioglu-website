@@ -1,35 +1,23 @@
 ---
 import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import ContactList from "../components/ContactList.astro";
 import photo from "../assets/photo-ng-01.jpg";
-import contact from "../data/contact.json";
+import { getUi } from "../i18n/ui";
+
+const t = getUi();
 ---
 
 <BaseLayout
-  title="Prof. Dr. Nurperi Gazioğlu"
+  title={t("site.title")}
   description="Prof. Dr. Nurperi Gazioğlu - randevu ve iletişim bilgileri."
 >
-  <main>
-    <h1 class="visually-hidden">Prof. Dr. Nurperi Gazioğlu</h1>
+  <main class="home">
+    <h1 class="visually-hidden">{t("site.name")}</h1>
     <div class="image-container full-width">
-      <Image src={photo} alt="Prof. Dr. Nurperi Gazioğlu portre fotoğrafı" widths={[320, 640, 960]} sizes="(min-width: 720px) 320px, 100vw" />
+      <Image src={photo} alt={t("home.photoAlt")} widths={[320, 640, 960]} sizes="(min-width: 720px) 320px, 100vw" />
     </div>
-    <p>
-      Sitemiz yapım aşamasındadır. Randevu için iletişim bilgilerini aşağıda
-      bulabilirsiniz.
-    </p>
-    <section>
-      <h2>Randevu Bilgileri</h2>
-      <dl>
-        <dt>Telefon:</dt>
-        <dd><a href={contact.phone.href}>{contact.phone.label}</a></dd>
-        <dt>Faks:</dt>
-        <dd><a href={contact.fax.href}>{contact.fax.label}</a></dd>
-        <dt>GSM:</dt>
-        <dd><a href={contact.gsm.href}>{contact.gsm.label}</a></dd>
-        <dt>E-Posta:</dt>
-        <dd><a href={contact.email.href}>{contact.email.label}</a></dd>
-      </dl>
-    </section>
+    <p>{t("home.notice")}</p>
+    <ContactList />
   </main>
 </BaseLayout>

@@ -1,0 +1,17 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ContactList from "../components/ContactList.astro";
+import { getUi } from "../i18n/ui";
+
+const t = getUi();
+---
+
+<BaseLayout
+  title={`${t("nav.contact")} | ${t("site.name")}`}
+  description="Prof. Dr. Nurperi Gazioğlu randevu ve iletişim bilgileri."
+>
+  <main>
+    <h1>{t("nav.contact")}</h1>
+    <ContactList />
+  </main>
+</BaseLayout>

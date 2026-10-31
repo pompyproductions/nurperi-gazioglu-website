@@ -1,0 +1,10 @@
+footer {
+  padding: var(--padding-y) var(--padding-x);
+  font-size: .9rem;
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .25rem 1.25rem;
+  }
+}

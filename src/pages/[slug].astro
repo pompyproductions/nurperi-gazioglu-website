@@ -1,0 +1,21 @@
+---
+import { getCollection, render } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getUi } from "../i18n/ui";
+
+export async function getStaticPaths() {
+  const pages = await getCollection("pages");
+  return pages.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+
+const t = getUi();
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<BaseLayout title={`${entry.data.title} | ${t("site.name")}`} description={entry.data.description}>
+  <main class="prose">
+    <h1>{entry.data.title}</h1>
+    <Content />
+  </main>
+</BaseLayout>

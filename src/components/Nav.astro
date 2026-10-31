@@ -1,0 +1,23 @@
+---
+import { getUi, type UiKey } from "../i18n/ui";
+import { routes } from "../i18n/routes";
+
+const t = getUi();
+const items: { key: UiKey; href: string }[] = [
+  { key: "nav.home", href: routes.home },
+  { key: "nav.about", href: routes.about },
+  { key: "nav.publications", href: routes.publications },
+  { key: "nav.contact", href: routes.contact },
+];
+const current = Astro.url.pathname.replace(/(.)\/$/, "$1");
+---
+
+<nav aria-label={t("nav.label")}>
+  <ul>
+    {items.map(({ key, href }) => (
+      <li>
+        <a href={href} aria-current={current === href ? "page" : undefined}>{t(key)}</a>
+      </li>
+    ))}
+  </ul>
+</nav>

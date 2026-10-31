@@ -1,0 +1,15 @@
+---
+import contact from "../data/contact.json";
+import { getUi } from "../i18n/ui";
+import { routes } from "../i18n/routes";
+
+const t = getUi();
+---
+
+<footer>
+  <ul>
+    <li><a href={contact.phone.href}>{contact.phone.label}</a></li>
+    <li><a href={contact.email.href}>{contact.email.label}</a></li>
+    <li><a href={routes.privacy}>{t("footer.privacy")}</a></li>
+  </ul>
+</footer>
