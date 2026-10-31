@@ -4,3 +4,15 @@
 
 [build.environment]
   NODE_VERSION = "24"
+
+# hashed build output never changes under the same URL
+[[headers]]
+  for = "/_astro/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# unhashed, so keep the lifetime short enough to pick up a replaced file
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
