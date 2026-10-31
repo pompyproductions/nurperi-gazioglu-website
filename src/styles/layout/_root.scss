@@ -7,15 +7,16 @@ body {
     content: "";
     inset: 0;
     position: absolute;
-    background: url(~/src/assets/rockywall.png);
+    background: url(/images/rockywall.png);
     z-index: -20;
     opacity: .6;
   }
 }
 
-#root {
+.page {
   overflow: hidden;
-  height: var(--doc-height);
+  height: 100vh; // fallback
+  height: 100dvh;
   display: grid;
   grid-template-rows: min-content 1fr;
   max-width: 1440px;

@@ -1,0 +1,6 @@
+{
+  "phone": { "label": "0212 240 61 32", "href": "tel:+902122406132" },
+  "fax": { "label": "0212 240 60 03", "href": "tel:+902122406003" },
+  "gsm": { "label": "0530 696 70 12", "href": "tel:+905306967012" },
+  "email": { "label": "info@nurperigazioglu.com", "href": "mailto:info@nurperigazioglu.com" }
+}
