@@ -69,7 +69,7 @@ The audience is **both patients and academic colleagues**. Pages should serve bo
     ├── pages/
     │   ├── index.astro            # Ana Sayfa
     │   ├── hakkinda/              # Hakkında hub + ozgecmis, oduller, yayinlar, basin
-    │   ├── bilgi-kosesi/          # Bilgi Köşesi hub + [konu], ne-zaman-doktora, sozluk, videolar
+    │   ├── bilgi-kosesi/          # Bilgi Köşesi hub + [konu], ne-zaman-doktora, sss, sozluk, videolar
     │   ├── iletisim.astro         # İletişim
     │   └── kvkk.astro             # KVKK Aydınlatma Metni (footer only)
     │                              # /blog arrives in phase 2; full tree in docs/site-content.md
@@ -139,7 +139,7 @@ npm run preview   # serve the production build locally
 ### Phase 1 — Working website (Turkish, static)
 
 - [x] Complete the Astro migration above (live on `main`).
-- [ ] Pages as listed in `docs/site-content.md`: Ana Sayfa, Hakkında (hub, Özgeçmiş, Ödüller, Yayınlar, Basında), Bilgi Köşesi (hub, topic articles, Ne Zaman Doktora Başvurmalı?, Sözlük, Videolar), İletişim, KVKK.
+- [ ] Pages as listed in `docs/site-content.md`: Ana Sayfa, Hakkında (hub, Özgeçmiş, Ödüller, Yayınlar, Basında), Bilgi Köşesi (hub, topic articles, Ne Zaman Doktora Başvurmalı?, SSS, Sözlük, Videolar), İletişim, KVKK.
 - [ ] All content in content files/collections with schemas in `content.config.ts`, even though it is edited by hand for now.
 - [x] Header with logo and navigation (Ana Sayfa, Hakkında, Bilgi Köşesi, İletişim; Blog added in phase 2).
 - [ ] Footer: contact details, direct link to Yayınlar, KVKK notice, and the site editor's contact (required on informational sites; name to be decided).

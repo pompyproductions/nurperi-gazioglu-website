@@ -50,6 +50,7 @@ nurperigazioglu.com
 ├── /bilgi-kosesi                     Bilgi Köşesi (hub)
 │   ├── /bilgi-kosesi/[konu]          Topic articles
 │   ├── /bilgi-kosesi/ne-zaman-doktora   Ne Zaman Doktora Başvurmalı?
+│   ├── /bilgi-kosesi/sss             Sıkça Sorulan Sorular
 │   ├── /bilgi-kosesi/sozluk          Sözlük
 │   └── /bilgi-kosesi/videolar        Videolar
 │
@@ -70,6 +71,7 @@ nurperigazioglu.com
 | `/hakkinda/basin` | `/en/about/press` |
 | `/bilgi-kosesi` | `/en/health-corner` (follows the final name) |
 | `/bilgi-kosesi/ne-zaman-doktora` | `/en/health-corner/when-to-see-a-doctor` |
+| `/bilgi-kosesi/sss` | `/en/health-corner/faq` |
 | `/bilgi-kosesi/sozluk` | `/en/health-corner/glossary` |
 | `/bilgi-kosesi/videolar` | `/en/health-corner/videos` |
 | `/blog` | `/en/blog` |
@@ -106,6 +108,7 @@ Plain-language health information for patients and the curious. The hub introduc
 
 - **Topic articles:** one page per condition or subject (e.g. hipofiz adenomu). Suggested structure: what it is, symptoms, diagnosis, treatment options, when to see a doctor. Each shows its last-updated date and its sources.
 - **Ne Zaman Doktora Başvurmalı?:** general warning signs and which kind of specialist to see. It never steers readers to her specifically.
+- **Sıkça Sorulan Sorular (SSS):** general questions patients ask, grouped by topic, each with a short plain-language answer and a link to the relevant topic article. Informs like the rest of the section; it does not direct readers to her as a specific doctor. Shows its last-updated date.
 - **Sözlük:** A–Z terms with anchors, so articles can link to a definition.
 - **Videolar:** educational videos, click-to-load YouTube embeds via `youtube-nocookie.com`. Each has title, date, topic and a short description.
 
