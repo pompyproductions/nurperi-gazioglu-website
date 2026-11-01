@@ -8,11 +8,13 @@ Personal/professional website for **Prof. Dr. Nurperi Gazioğlu**. Live at **htt
 
 The primary language is **Turkish**; **English** is the secondary language, added in phase 3.
 
-The site is a content site: a homepage, an about page, a publications list, a contact page and, later, a blog that Nurperi Hanım can update herself without technical help.
+The site is a content site: a homepage, an About section (CV, awards, publications, press), a patient-information section (Bilgi Köşesi), a contact page and, later, a blog that Nurperi Hanım can update herself without technical help.
+
+**Sitemap, navigation, page directives and content rules live in [`docs/site-content.md`](docs/site-content.md).** Read it before adding or renaming pages. Where this file and that document disagree about structure or content, the document wins; update both when decisions change (the three marked \[Meeting\] there are revisited with Nurperi Hanım at the end of phase 1).
 
 The audience is **both patients and academic colleagues**. Pages should serve both: clear appointment and contact information for patients, and credentials and publications easy to find for colleagues. Keep the tone professional and plain, avoiding jargon in patient-facing text.
 
-### Current state (before migration)
+### State before migration (historical)
 
 - Webpack 5 + Babel + React 18 + React Router single-page app.
 - One page: an "under construction" holding page with logo, portrait, short notice and appointment contact links.
@@ -52,8 +54,10 @@ The audience is **both patients and academic colleagues**. Pages should serve bo
     │   └── photo-ng-01.jpg
     ├── components/                # Header, Footer, ContactList, LanguageSwitcher (phase 3)…
     ├── content/
-    │   ├── pages/                 # Markdown for prose pages (about, home intro)
-    │   ├── publications/          # one entry per publication (or a single data file)
+    │   ├── pages/                 # Markdown for prose pages (see docs/site-content.md)
+    │   ├── publications/          # one entry per publication
+    │   ├── awards/, press/        # one entry per item (collections added in phase 1)
+    │   ├── articles/, glossary/, videos/   # Bilgi Köşesi content
     │   └── blog/                  # phase 2
     ├── content.config.ts          # collection schemas
     ├── data/
@@ -63,10 +67,12 @@ The audience is **both patients and academic colleagues**. Pages should serve bo
     ├── layouts/
     │   └── BaseLayout.astro       # <html lang>, <head> meta, header, footer
     ├── pages/
-    │   ├── index.astro            # Ana sayfa
-    │   ├── hakkimda.astro         # Hakkımda
-    │   ├── yayinlar.astro         # Yayınlar
-    │   └── iletisim.astro         # İletişim
+    │   ├── index.astro            # Ana Sayfa
+    │   ├── hakkinda/              # Hakkında hub + ozgecmis, oduller, yayinlar, basin
+    │   ├── bilgi-kosesi/          # Bilgi Köşesi hub + [konu], ne-zaman-doktora, sozluk, videolar
+    │   ├── iletisim.astro         # İletişim
+    │   └── kvkk.astro             # KVKK Aydınlatma Metni (footer only)
+    │                              # /blog arrives in phase 2; full tree in docs/site-content.md
     └── styles/                    # migrated Sass partials
         ├── globals/
         ├── layout/
@@ -74,7 +80,7 @@ The audience is **both patients and academic colleagues**. Pages should serve bo
         └── style.scss
 ```
 
-URL slugs are ASCII (`hakkimda`, `yayinlar`, `iletisim`); visible titles use correct Turkish characters.
+URL slugs are ASCII (`hakkinda`, `bilgi-kosesi`, `iletisim`, `kvkk`); visible titles use correct Turkish characters. Route paths are kept in `src/i18n/routes.ts` and UI strings in `src/i18n/ui.ts`.
 
 ## Migration plan (React/Webpack → Astro)
 
@@ -132,10 +138,11 @@ npm run preview   # serve the production build locally
 
 ### Phase 1 — Working website (Turkish, static)
 
-- [ ] Complete the Astro migration above.
-- [ ] Pages: Ana sayfa, Hakkımda, Yayınlar, İletişim.
+- [x] Complete the Astro migration above (live on `main`).
+- [ ] Pages as listed in `docs/site-content.md`: Ana Sayfa, Hakkında (hub, Özgeçmiş, Ödüller, Yayınlar, Basında), Bilgi Köşesi (hub, topic articles, Ne Zaman Doktora Başvurmalı?, Sözlük, Videolar), İletişim, KVKK.
 - [ ] All content in content files/collections with schemas in `content.config.ts`, even though it is edited by hand for now.
-- [ ] Shared layout: header with logo and navigation, footer with contact links and privacy notice link.
+- [x] Header with logo and navigation (Ana Sayfa, Hakkında, Bilgi Köşesi, İletişim; Blog added in phase 2).
+- [ ] Footer: contact details, direct link to Yayınlar, KVKK notice, and the site editor's contact (required on informational sites; name to be decided).
 - [ ] Widgets: YouTube embeds via `youtube-nocookie.com`, ideally click-to-load (thumbnail first) to keep pages light and KVKK-friendly.
 - [ ] SEO: per-page `<title>` and meta description, Open Graph image for link previews (WhatsApp etc.), `sitemap.xml` via `@astrojs/sitemap`, `robots.txt`.
 - [ ] Accessibility pass: headings, alt text, colour contrast of violet/lilac on the textured background, keyboard focus styles.
@@ -152,7 +159,7 @@ npm run preview   # serve the production build locally
 
 ### Phase 3 — Internationalisation
 
-- [ ] Add `"en"` to `locales` in `astro.config.mjs`; Turkish stays at the root, English under `/en/` with translated slugs: `/en/about`, `/en/publications`, `/en/contact`, `/en/blog`.
+- [ ] Add `"en"` to `locales` in `astro.config.mjs`; Turkish stays at the root, English under `/en/` with translated slugs: the full slug table is in `docs/site-content.md` (e.g. `/hakkinda/yayinlar` → `/en/about/publications`).
 - [ ] Keep a slug map (e.g. in `src/i18n/routes.ts`) pairing each Turkish route with its English one, used by the language switcher and `hreflang` links so each page links to its exact counterpart, not the other language's homepage.
 - [ ] Translate `src/i18n/ui.ts` strings and content entries (per-locale folders or a `lang` field, decided before phase 2 content grows).
 - [ ] Language switcher component; `hreflang` alternate links; per-locale sitemap entries.
@@ -162,7 +169,7 @@ npm run preview   # serve the production build locally
 ## Rules for working in this repo
 
 - **Never invent content.** Do not write biography details, credentials, publications or medical claims. Use clearly marked placeholders (`TODO: içerik bekleniyor`) instead.
-- **Respect medical advertising rules.** No testimonials, superlatives ("the best"), promises of results or promotional wording.
+- **Respect medical advertising rules.** No testimonials, superlatives ("the best"), promises of results or promotional wording. The full list is in `docs/site-content.md`; in particular, informational pages show a last-updated date and never steer readers to her as a specific doctor.
 - **Turkish text must be correct**, including ğ, ı, İ, ş, ç, ö, ü. Watch case conversions: `"i".toUpperCase()` is not `"İ"` unless using `toLocaleUpperCase("tr")`.
 - **Do not change public contact details** without explicit confirmation.
 - **Never touch the Netlify DNS records for email** (MX, SPF, DKIM and Zoho verification TXT records). Deploys and domain settings must leave them intact; changing them breaks the `info@` mailbox.
@@ -179,5 +186,8 @@ npm run preview   # serve the production build locally
 - **Domain:** nurperigazioglu.com, already served.
 - **Publications:** compiled and maintained by hand for now.
 - **Email:** Zoho Mail; DNS records live in Netlify DNS.
-- **English slugs:** direct translations (`/hakkimda` → `/en/about`, `/yayinlar` → `/en/publications`, `/iletisim` → `/en/contact`).
+- **Sitemap and slugs:** defined in `docs/site-content.md`. English slugs are direct translations (`/hakkinda` → `/en/about`, `/iletisim` → `/en/contact`); Publications sits under Hakkında (`/hakkinda/yayinlar`).
+- **Voice:** third person everywhere except the blog (first person). Provisional, revisited at the end of phase 1.
+- **Informational section:** called Bilgi Köşesi (provisional). Renaming after launch needs redirects.
+- **Press:** linked out, never re-hosted.
 - **CMS:** deferred to phase 2; no CMS work until the phase 1 foundation is solid.
