@@ -1,6 +1,7 @@
 ---
 import contact from "../data/contact.json";
 import { getUi } from "../i18n/ui";
+import * as icons from "./icons";
 import { routes } from "../i18n/routes";
 
 const t = getUi();
@@ -8,8 +9,8 @@ const t = getUi();
 
 <footer>
   <ul>
-    <li><a href={contact.phone.href}>{contact.phone.label}</a></li>
-    <li><a href={contact.email.href}>{contact.email.label}</a></li>
+    <li><a href={contact.phone.href}><icons.phone class="icon" aria-hidden="true" />{contact.phone.label}</a></li>
+    <li><a href={contact.email.href}><icons.email class="icon" aria-hidden="true" />{contact.email.label}</a></li>
     <li><a href={routes.publications}>{t("publications.title")}</a></li>
     <li><a href={routes.kvkk}>{t("footer.kvkk")}</a></li>
   </ul>

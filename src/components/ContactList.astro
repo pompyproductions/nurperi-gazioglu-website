@@ -1,6 +1,7 @@
 ---
 import contact from "../data/contact.json";
 import { getUi } from "../i18n/ui";
+import * as icons from "./icons";
 
 const t = getUi();
 ---
@@ -8,13 +9,13 @@ const t = getUi();
 <section>
   <h2>{t("contact.heading")}</h2>
   <dl>
-    <dt>{t("contact.phone")}</dt>
+    <dt><icons.phone class="icon" aria-hidden="true" />{t("contact.phone")}</dt>
     <dd><a href={contact.phone.href}>{contact.phone.label}</a></dd>
-    <dt>{t("contact.fax")}</dt>
+    <dt><icons.fax class="icon" aria-hidden="true" />{t("contact.fax")}</dt>
     <dd><a href={contact.fax.href}>{contact.fax.label}</a></dd>
-    <dt>{t("contact.gsm")}</dt>
+    <dt><icons.gsm class="icon" aria-hidden="true" />{t("contact.gsm")}</dt>
     <dd><a href={contact.gsm.href}>{contact.gsm.label}</a></dd>
-    <dt>{t("contact.email")}</dt>
+    <dt><icons.email class="icon" aria-hidden="true" />{t("contact.email")}</dt>
     <dd><a href={contact.email.href}>{contact.email.label}</a></dd>
   </dl>
 </section>
