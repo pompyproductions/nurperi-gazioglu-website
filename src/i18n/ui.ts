@@ -5,9 +5,9 @@ export const ui = {
     "site.name": "Prof. Dr. Nurperi Gazioğlu",
     "site.title": "Prof. Dr. Nurperi Gazioğlu",
     "nav.label": "Ana menü",
-    "nav.home": "Ana sayfa",
-    "nav.about": "Hakkımda",
-    "nav.publications": "Yayınlar",
+    "nav.home": "Ana Sayfa",
+    "nav.about": "Hakkında",
+    "nav.health": "Bilgi Köşesi",
     "nav.contact": "İletişim",
     "contact.heading": "Randevu Bilgileri",
     "contact.phone": "Telefon:",
@@ -17,8 +17,10 @@ export const ui = {
     "home.notice":
       "Sitemiz yapım aşamasındadır. Randevu için iletişim bilgilerini aşağıda bulabilirsiniz.",
     "home.photoAlt": "Prof. Dr. Nurperi Gazioğlu portre fotoğrafı",
+    "publications.title": "Yayınlar",
     "publications.empty": "TODO: içerik bekleniyor",
-    "footer.privacy": "Gizlilik Bildirimi",
+    "footer.kvkk": "KVKK Aydınlatma Metni",
+    "footer.editor": "Site editörü: TODO: içerik bekleniyor",
   },
 } as const;
 

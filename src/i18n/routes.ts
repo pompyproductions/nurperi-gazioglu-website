@@ -1,8 +1,9 @@
-// Turkish routes; phase 3 pairs each with its English slug (see CLAUDE.md).
+// Turkish routes; phase 3 pairs each with its English slug (see docs/site-content.md).
 export const routes = {
   home: "/",
-  about: "/hakkimda",
-  publications: "/yayinlar",
+  about: "/hakkinda",
+  publications: "/hakkinda/yayinlar",
+  health: "/bilgi-kosesi",
   contact: "/iletisim",
-  privacy: "/gizlilik",
+  kvkk: "/kvkk",
 } as const;

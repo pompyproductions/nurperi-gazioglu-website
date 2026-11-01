@@ -1,5 +1,5 @@
 ---
-title: "Hakkımda"
+title: "Hakkında"
 description: "Prof. Dr. Nurperi Gazioğlu hakkında."
 ---
 

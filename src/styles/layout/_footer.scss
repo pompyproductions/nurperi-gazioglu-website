@@ -7,4 +7,9 @@ footer {
     flex-wrap: wrap;
     gap: .25rem 1.25rem;
   }
+
+  p {
+    margin-top: .5rem;
+    font-size: inherit;
+  }
 }

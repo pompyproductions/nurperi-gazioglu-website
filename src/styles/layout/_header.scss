@@ -27,7 +27,8 @@ header {
     @include break-at("tablet-s") {
       font-size: 1.1rem;
     }
-    &[aria-current="page"] {
+    &[aria-current="page"],
+    &[aria-current="true"] {
       text-decoration: underline var(--violet);
       text-underline-offset: .25em;
     }

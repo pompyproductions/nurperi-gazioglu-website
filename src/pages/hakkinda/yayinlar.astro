@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
-import BaseLayout from "../layouts/BaseLayout.astro";
-import { getUi } from "../i18n/ui";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getUi } from "../../i18n/ui";
 
 const t = getUi();
 const publications = (await getCollection("publications")).sort(
@@ -10,11 +10,11 @@ const publications = (await getCollection("publications")).sort(
 ---
 
 <BaseLayout
-  title={`${t("nav.publications")} | ${t("site.name")}`}
+  title={`${t("publications.title")} | ${t("site.name")}`}
   description="Prof. Dr. Nurperi Gazioğlu akademik yayınları."
 >
   <main>
-    <h1>{t("nav.publications")}</h1>
+    <h1>{t("publications.title")}</h1>
     {publications.length === 0 ? (
       <p>{t("publications.empty")}</p>
     ) : (

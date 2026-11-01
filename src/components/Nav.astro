@@ -6,17 +6,24 @@ const t = getUi();
 const items: { key: UiKey; href: string }[] = [
   { key: "nav.home", href: routes.home },
   { key: "nav.about", href: routes.about },
-  { key: "nav.publications", href: routes.publications },
+  { key: "nav.health", href: routes.health },
   { key: "nav.contact", href: routes.contact },
 ];
 const current = Astro.url.pathname.replace(/(.)\/$/, "$1");
+
+// "page" on the exact page, "true" on a section's parent item while inside it
+function ariaCurrent(href: string) {
+  if (current === href) return "page";
+  if (href !== routes.home && current.startsWith(`${href}/`)) return "true";
+  return undefined;
+}
 ---
 
 <nav aria-label={t("nav.label")}>
   <ul>
     {items.map(({ key, href }) => (
       <li>
-        <a href={href} aria-current={current === href ? "page" : undefined}>{t(key)}</a>
+        <a href={href} aria-current={ariaCurrent(href)}>{t(key)}</a>
       </li>
     ))}
   </ul>
