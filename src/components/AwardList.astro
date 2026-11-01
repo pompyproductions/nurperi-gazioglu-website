@@ -11,7 +11,7 @@ const { entries } = Astro.props;
 <ul class="entries">
   {entries.map(({ data }) => (
     <li>
-      <p>{data.year}: {data.title}, {data.body}</p>
+      <p>{data.year}{data.yearEnd ? `–${data.yearEnd}` : ""}: {data.title}, {data.body}</p>
       {data.context && <p class="meta">{data.context}</p>}
     </li>
   ))}

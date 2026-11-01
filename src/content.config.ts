@@ -24,17 +24,25 @@ const publications = defineCollection({
     year: z.number().int(),
     type: z.enum(["makale", "kitap-bolum", "bildiri"]),
     link: z.string().url().optional(), // DOI or PubMed
+    selected: z.boolean().default(false), // listed on the Hakkında hub
   }),
 });
 
 const awards = defineCollection({
   loader: glob({ pattern: "**/*.json", base: "./src/content/awards" }),
-  schema: z.object({
-    year: z.number().int(),
-    title: z.string(),
-    body: z.string(), // awarding body
-    context: z.string().optional(),
-  }),
+  schema: z
+    .object({
+      year: z.number().int(),
+      yearEnd: z.number().int().optional(), // shown as year–yearEnd
+      title: z.string(),
+      body: z.string(), // awarding body
+      context: z.string().optional(),
+      selected: z.boolean().default(false), // listed on the Hakkında hub
+    })
+    .refine((a) => a.yearEnd === undefined || a.yearEnd >= a.year, {
+      message: "yearEnd must not be before year",
+      path: ["yearEnd"],
+    }),
 });
 
 const press = defineCollection({
@@ -48,6 +56,7 @@ const press = defineCollection({
     language: z.string(),
     summary: z.string(), // one line, written for this site
     link: z.string().url(),
+    selected: z.boolean().default(false), // listed on the Hakkında hub
   }),
 });
 

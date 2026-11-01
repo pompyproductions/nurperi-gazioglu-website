@@ -98,7 +98,7 @@ The homepage does the heavy lifting: it surfaces the best of every section so ne
 The hub is a real page, not a menu: a short introduction (photo, a few paragraphs, key milestones), then four blocks. Each block has a one-paragraph introduction, a teaser of its content (the latest or most notable two or three items) and a link to the full page ("Tüm yayınlar", "Tüm basın haberleri"…). The blocks are cards in UX terms, not necessarily in visual style.
 
 - **Özgeçmiş:** full biography, CV timeline (education, positions, titles), memberships, editorial and board roles.
-- **Ödüller ve Takdirler:** newest first; each entry has year, award, awarding body and an optional one-line context.
+- **Ödüller ve Takdirler:** newest first; each entry has year (optionally `yearEnd`, shown as year–yearEnd), award, awarding body and an optional one-line context. Entries marked `selected` appear in the hub teaser; the full page lists all.
 - **Yayınlar:** one page with three sections: Makaleler, Kitap ve Bölümler, Bildiriler. Each entry has authors, title, journal or book, year, and a DOI or PubMed link. Newest first within each section. Entered by hand for now.
 - **Basında:** a filterable list that works like a database view. Each item has outlet, date, title, type (Röportaj, Haber, Dijital, Video), region (Yurt içi, Yurt dışı), language, a one-line summary written for this site, and the external link. Newest first; filters for type, region and year.
 

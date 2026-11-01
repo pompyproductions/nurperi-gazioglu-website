@@ -14,16 +14,16 @@ const t = getUi();
 const intro = (await getEntry("pages", "hakkinda"))!;
 const { Content } = await render(intro);
 
-const TEASERS = 3;
-const publications = (await getCollection("publications"))
-  .sort((a, b) => b.data.year - a.data.year)
-  .slice(0, TEASERS);
-const awards = (await getCollection("awards"))
-  .sort((a, b) => b.data.year - a.data.year)
-  .slice(0, TEASERS);
-const press = (await getCollection("press"))
-  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
-  .slice(0, TEASERS);
+// the hub lists only entries marked `selected: true`
+const publications = (await getCollection("publications", ({ data }) => data.selected)).sort(
+  (a, b) => b.data.year - a.data.year,
+);
+const awards = (await getCollection("awards", ({ data }) => data.selected)).sort(
+  (a, b) => b.data.year - a.data.year,
+);
+const press = (await getCollection("press", ({ data }) => data.selected)).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime(),
+);
 ---
 
 <BaseLayout title={`${intro.data.title} | ${t("site.name")}`} description={intro.data.description}>
