@@ -1,10 +1,12 @@
 ---
 import { getCollection, getEntry, render } from "astro:content";
+import { Image } from "astro:assets";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import AboutBlock from "../../components/AboutBlock.astro";
 import PublicationList from "../../components/PublicationList.astro";
 import AwardList from "../../components/AwardList.astro";
 import PressList from "../../components/PressList.astro";
+import photo from "../../assets/photo-ng-01.jpg";
 import { getUi } from "../../i18n/ui";
 import { routes } from "../../i18n/routes";
 
@@ -27,23 +29,38 @@ const press = (await getCollection("press"))
 <BaseLayout title={`${intro.data.title} | ${t("site.name")}`} description={intro.data.description}>
   <main>
     <h1>{intro.data.title}</h1>
-    <div class="prose">
-      <Content />
+    <div class="intro">
+      <div class="portrait">
+        <Image src={photo} alt={t("home.photoAlt")} widths={[200, 400]} sizes="200px" />
+      </div>
+      <div class="prose">
+        <Content />
+        {intro.data.milestones && (
+          <ol class="milestones">
+            {intro.data.milestones.map(({ year, text }) => (
+              <li>
+                <span class="year">{year}</span>
+                <span>{text}</span>
+              </li>
+            ))}
+          </ol>
+        )}
+      </div>
     </div>
     <div class="blocks">
       <AboutBlock title={t("about.cv")} href={routes.cv} linkLabel={t("about.cv.more")}>
-        <p>{t("placeholder")}</p>
+        <p>{intro.data.blocks?.cv ?? t("placeholder")}</p>
       </AboutBlock>
       <AboutBlock title={t("about.awards")} href={routes.awards} linkLabel={t("about.awards.more")}>
-        <p>{t("placeholder")}</p>
+        <p>{intro.data.blocks?.awards ?? t("placeholder")}</p>
         {awards.length > 0 && <AwardList entries={awards} />}
       </AboutBlock>
       <AboutBlock title={t("publications.title")} href={routes.publications} linkLabel={t("publications.more")}>
-        <p>{t("placeholder")}</p>
+        <p>{intro.data.blocks?.publications ?? t("placeholder")}</p>
         {publications.length > 0 && <PublicationList entries={publications} />}
       </AboutBlock>
       <AboutBlock title={t("press.title")} href={routes.press} linkLabel={t("press.more")}>
-        <p>{t("placeholder")}</p>
+        <p>{intro.data.blocks?.press ?? t("placeholder")}</p>
         {press.length > 0 && <PressList entries={press} />}
       </AboutBlock>
     </div>

@@ -1,0 +1,8 @@
+{
+  "title": "ÖRNEK Bölüm Başlığı",
+  "authors": "Örnek Yazar, A.",
+  "source": "Örnek Kitap, Örnek Yayınevi",
+  "year": 2020,
+  "type": "kitap-bolum",
+  "link": "https://example.com/bolum"
+}

@@ -1,0 +1,10 @@
+{
+  "outlet": "Example TV",
+  "date": "2023-06-09",
+  "title": "ÖRNEK video başlığı",
+  "type": "video",
+  "region": "yurt-disi",
+  "language": "İngilizce",
+  "summary": "Örnek özet cümlesi.",
+  "link": "https://example.com/p4"
+}

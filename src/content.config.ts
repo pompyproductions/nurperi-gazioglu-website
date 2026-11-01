@@ -7,6 +7,11 @@ const pages = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string(),
+    milestones: z.array(z.object({ year: z.string(), text: z.string() })).optional(),
+    // one-paragraph introductions for the Hakkında hub blocks
+    blocks: z
+      .object({ cv: z.string(), awards: z.string(), publications: z.string(), press: z.string() })
+      .optional(),
   }),
 });
 

@@ -170,6 +170,7 @@ npm run preview   # serve the production build locally
 ## Rules for working in this repo
 
 - **Never invent content.** Do not write biography details, credentials, publications or medical claims. Use clearly marked placeholders (`TODO: içerik bekleniyor`) instead.
+  - **Exception (agreed with the owner):** while a page's real content is missing, clearly fictional *mock* content may be added on a feature branch to develop layout, so long as it is obviously fake (every item tagged `ÖRNEK`, invented institutions such as "Örnek Üniversitesi", `example.com` links, never real names or claims about her). Mock content must be removed (`grep -r ÖRNEK src`) before merging to `main`.
 - **Respect medical advertising rules.** No testimonials, superlatives ("the best"), promises of results or promotional wording. The full list is in `docs/site-content.md`; in particular, informational pages show a last-updated date and never steer readers to her as a specific doctor.
 - **Turkish text must be correct**, including ğ, ı, İ, ş, ç, ö, ü. Watch case conversions: `"i".toUpperCase()` is not `"İ"` unless using `toLocaleUpperCase("tr")`.
 - **Do not change public contact details** without explicit confirmation.

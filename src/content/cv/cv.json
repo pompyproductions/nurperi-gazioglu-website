@@ -1,7 +1,50 @@
 {
-  "education": [],
-  "positions": [],
-  "titles": [],
-  "memberships": [],
-  "roles": []
+  "education": [
+    {
+      "period": "ÖRNEK 1989–1995",
+      "text": "ÖRNEK: Örnek Üniversitesi Tıp Fakültesi, tıp doktoru."
+    },
+    {
+      "period": "ÖRNEK 1996–2002",
+      "text": "ÖRNEK: Örnek Eğitim ve Araştırma Hastanesi, uzmanlık eğitimi."
+    }
+  ],
+  "positions": [
+    {
+      "period": "ÖRNEK 2002–2010",
+      "text": "ÖRNEK: Örnek Hastanesi, uzman hekim."
+    },
+    {
+      "period": "ÖRNEK 2010–",
+      "text": "ÖRNEK: Örnek Üniversitesi Tıp Fakültesi, öğretim üyesi."
+    }
+  ],
+  "titles": [
+    {
+      "period": "ÖRNEK 2010",
+      "text": "ÖRNEK: Doçent."
+    },
+    {
+      "period": "ÖRNEK 2016",
+      "text": "ÖRNEK: Profesör."
+    }
+  ],
+  "memberships": [
+    {
+      "text": "ÖRNEK: Örnek Tıp Derneği."
+    },
+    {
+      "text": "ÖRNEK: Örnek Uzmanlık Cemiyeti."
+    }
+  ],
+  "roles": [
+    {
+      "period": "ÖRNEK 2018–",
+      "text": "ÖRNEK: Örnek Tıp Dergisi, editör kurulu üyesi."
+    },
+    {
+      "period": "ÖRNEK 2020–2023",
+      "text": "ÖRNEK: Örnek Derneği, yönetim kurulu üyesi."
+    }
+  ]
 }

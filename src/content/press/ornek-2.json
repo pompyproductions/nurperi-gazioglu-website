@@ -1,0 +1,10 @@
+{
+  "outlet": "Örnek Haber Sitesi",
+  "date": "2024-02-03",
+  "title": "ÖRNEK haber başlığı",
+  "type": "haber",
+  "region": "yurt-ici",
+  "language": "Türkçe",
+  "summary": "Örnek özet cümlesi.",
+  "link": "https://example.com/p2"
+}

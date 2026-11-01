@@ -1,0 +1,10 @@
+{
+  "outlet": "Örnek Gazetesi",
+  "date": "2024-05-12",
+  "title": "ÖRNEK röportaj başlığı",
+  "type": "roportaj",
+  "region": "yurt-ici",
+  "language": "Türkçe",
+  "summary": "Örnek özet cümlesi: görüşmenin ana konusu tek cümlede.",
+  "link": "https://example.com/p1"
+}
