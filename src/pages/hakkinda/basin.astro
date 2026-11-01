@@ -1,0 +1,21 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import PressList from "../../components/PressList.astro";
+import { getUi } from "../../i18n/ui";
+
+const t = getUi();
+const press = (await getCollection("press")).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime(),
+);
+---
+
+<BaseLayout
+  title={`${t("press.title")} | ${t("site.name")}`}
+  description="Prof. Dr. Nurperi Gazioğlu hakkında basın haberleri ve röportajlar."
+>
+  <main>
+    <h1>{t("press.title")}</h1>
+    {press.length === 0 ? <p>{t("placeholder")}</p> : <PressList entries={press} />}
+  </main>
+</BaseLayout>

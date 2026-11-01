@@ -56,7 +56,8 @@ The audience is **both patients and academic colleagues**. Pages should serve bo
     ├── content/
     │   ├── pages/                 # Markdown for prose pages (see docs/site-content.md)
     │   ├── publications/          # one entry per publication
-    │   ├── awards/, press/        # one entry per item (collections added in phase 1)
+    │   ├── awards/, press/        # one entry per item
+    │   ├── cv/cv.json             # structured CV sections (education, positions, titles, memberships, roles)
     │   ├── articles/, glossary/, videos/   # Bilgi Köşesi content
     │   └── blog/                  # phase 2
     ├── content.config.ts          # collection schemas

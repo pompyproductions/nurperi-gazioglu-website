@@ -1,0 +1,33 @@
+---
+import { getEntry, render } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getUi, type UiKey } from "../../i18n/ui";
+
+const t = getUi();
+const bio = (await getEntry("pages", "ozgecmis"))!;
+const { Content } = await render(bio);
+const cv = (await getEntry("cv", "cv"))!.data;
+const sections = ["education", "positions", "titles", "memberships", "roles"] as const;
+---
+
+<BaseLayout title={`${bio.data.title} | ${t("site.name")}`} description={bio.data.description}>
+  <main>
+    <h1>{bio.data.title}</h1>
+    <div class="prose">
+      <Content />
+    </div>
+    {sections.filter((key) => cv[key].length > 0).map((key) => (
+      <section>
+        <h2>{t(`cv.${key}` as UiKey)}</h2>
+        <dl class="timeline">
+          {cv[key].map((item) => (
+            <>
+              <dt>{item.period ?? ""}</dt>
+              <dd>{item.text}</dd>
+            </>
+          ))}
+        </dl>
+      </section>
+    ))}
+  </main>
+</BaseLayout>

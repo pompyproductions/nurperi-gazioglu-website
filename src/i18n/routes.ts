@@ -2,7 +2,10 @@
 export const routes = {
   home: "/",
   about: "/hakkinda",
+  cv: "/hakkinda/ozgecmis",
+  awards: "/hakkinda/oduller",
   publications: "/hakkinda/yayinlar",
+  press: "/hakkinda/basin",
   health: "/bilgi-kosesi",
   contact: "/iletisim",
   kvkk: "/kvkk",

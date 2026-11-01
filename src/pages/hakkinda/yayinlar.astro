@@ -1,12 +1,14 @@
 ---
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { getUi } from "../../i18n/ui";
+import PublicationList from "../../components/PublicationList.astro";
+import { getUi, type UiKey } from "../../i18n/ui";
 
 const t = getUi();
 const publications = (await getCollection("publications")).sort(
   (a, b) => b.data.year - a.data.year,
 );
+const types = ["makale", "kitap-bolum", "bildiri"] as const;
 ---
 
 <BaseLayout
@@ -15,18 +17,15 @@ const publications = (await getCollection("publications")).sort(
 >
   <main>
     <h1>{t("publications.title")}</h1>
-    {publications.length === 0 ? (
-      <p>{t("publications.empty")}</p>
-    ) : (
-      <ul class="publications">
-        {publications.map(({ data }) => (
-          <li>
-            <p>
-              {data.authors} ({data.year}). {data.link ? <a href={data.link}>{data.title}</a> : data.title}. <em>{data.journal}</em>.
-            </p>
-          </li>
-        ))}
-      </ul>
-    )}
+    {publications.length === 0 && <p>{t("placeholder")}</p>}
+    {types.map((type) => {
+      const entries = publications.filter(({ data }) => data.type === type);
+      return entries.length > 0 && (
+        <section>
+          <h2>{t(`publications.${type}` as UiKey)}</h2>
+          <PublicationList entries={entries} />
+        </section>
+      );
+    })}
   </main>
 </BaseLayout>

@@ -1,0 +1,19 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import AwardList from "../../components/AwardList.astro";
+import { getUi } from "../../i18n/ui";
+
+const t = getUi();
+const awards = (await getCollection("awards")).sort((a, b) => b.data.year - a.data.year);
+---
+
+<BaseLayout
+  title={`${t("about.awards")} | ${t("site.name")}`}
+  description="Prof. Dr. Nurperi Gazioğlu ödülleri ve takdirleri."
+>
+  <main>
+    <h1>{t("about.awards")}</h1>
+    {awards.length === 0 ? <p>{t("placeholder")}</p> : <AwardList entries={awards} />}
+  </main>
+</BaseLayout>

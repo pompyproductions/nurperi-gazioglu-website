@@ -1,0 +1,18 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  entries: CollectionEntry<"awards">[];
+}
+
+const { entries } = Astro.props;
+---
+
+<ul class="entries">
+  {entries.map(({ data }) => (
+    <li>
+      <p>{data.year}: {data.title}, {data.body}</p>
+      {data.context && <p class="meta">{data.context}</p>}
+    </li>
+  ))}
+</ul>

@@ -1,0 +1,24 @@
+@use "../globals/mixins" as *;
+
+.blocks {
+  display: grid;
+  gap: var(--outer-gap-y) var(--outer-gap-x);
+
+  @include break-at("tablet-m") {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.entries {
+  display: grid;
+  gap: var(--inner-gap-y);
+}
+
+.meta {
+  font-size: .9em;
+  font-style: italic;
+}
+
+.more {
+  justify-self: start;
+}

@@ -1,0 +1,19 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  entries: CollectionEntry<"publications">[];
+}
+
+const { entries } = Astro.props;
+---
+
+<ul class="entries">
+  {entries.map(({ data }) => (
+    <li>
+      <p>
+        {data.authors} ({data.year}). {data.link ? <a href={data.link}>{data.title}</a> : data.title}. <em>{data.source}</em>.
+      </p>
+    </li>
+  ))}
+</ul>

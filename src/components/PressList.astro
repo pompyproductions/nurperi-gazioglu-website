@@ -1,0 +1,25 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { getUi, type UiKey } from "../i18n/ui";
+
+interface Props {
+  entries: CollectionEntry<"press">[];
+}
+
+const t = getUi();
+const { entries } = Astro.props;
+---
+
+<ul class="entries">
+  {entries.map(({ data }) => (
+    <li>
+      <p>
+        <a href={data.link} rel="noopener">{data.title}</a>, {data.outlet}, {data.date.toLocaleDateString("tr-TR")}
+      </p>
+      <p class="meta">
+        {t(`press.${data.type}` as UiKey)} · {t(`press.${data.region}` as UiKey)} · {data.language}
+      </p>
+      <p>{data.summary}</p>
+    </li>
+  ))}
+</ul>

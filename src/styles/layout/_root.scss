@@ -40,6 +40,11 @@ main {
     @include break-at("tablet-m") {
       grid-template-columns: 320px 1fr;
       grid-auto-rows: unset;
+
+      > section {
+        grid-column: 2;
+        align-self: start;
+      }
     }
   }
 }

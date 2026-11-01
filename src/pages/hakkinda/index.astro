@@ -1,0 +1,51 @@
+---
+import { getCollection, getEntry, render } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import AboutBlock from "../../components/AboutBlock.astro";
+import PublicationList from "../../components/PublicationList.astro";
+import AwardList from "../../components/AwardList.astro";
+import PressList from "../../components/PressList.astro";
+import { getUi } from "../../i18n/ui";
+import { routes } from "../../i18n/routes";
+
+const t = getUi();
+const intro = (await getEntry("pages", "hakkinda"))!;
+const { Content } = await render(intro);
+
+const TEASERS = 3;
+const publications = (await getCollection("publications"))
+  .sort((a, b) => b.data.year - a.data.year)
+  .slice(0, TEASERS);
+const awards = (await getCollection("awards"))
+  .sort((a, b) => b.data.year - a.data.year)
+  .slice(0, TEASERS);
+const press = (await getCollection("press"))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, TEASERS);
+---
+
+<BaseLayout title={`${intro.data.title} | ${t("site.name")}`} description={intro.data.description}>
+  <main>
+    <h1>{intro.data.title}</h1>
+    <div class="prose">
+      <Content />
+    </div>
+    <div class="blocks">
+      <AboutBlock title={t("about.cv")} href={routes.cv} linkLabel={t("about.cv.more")}>
+        <p>{t("placeholder")}</p>
+      </AboutBlock>
+      <AboutBlock title={t("about.awards")} href={routes.awards} linkLabel={t("about.awards.more")}>
+        <p>{t("placeholder")}</p>
+        {awards.length > 0 && <AwardList entries={awards} />}
+      </AboutBlock>
+      <AboutBlock title={t("publications.title")} href={routes.publications} linkLabel={t("publications.more")}>
+        <p>{t("placeholder")}</p>
+        {publications.length > 0 && <PublicationList entries={publications} />}
+      </AboutBlock>
+      <AboutBlock title={t("press.title")} href={routes.press} linkLabel={t("press.more")}>
+        <p>{t("placeholder")}</p>
+        {press.length > 0 && <PressList entries={press} />}
+      </AboutBlock>
+    </div>
+  </main>
+</BaseLayout>
