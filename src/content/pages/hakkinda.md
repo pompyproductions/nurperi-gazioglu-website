@@ -14,7 +14,7 @@ milestones:
     text: "İstanbul Üniversitesi Hipofiz Merkezi’ni kurdu."
 blocks:
   cv: "ÖRNEK: Eğitim, görevler ve unvanların yıllara göre özeti."
-  awards: "ÖRNEK: Alınan ödüllerin ve takdirlerin kısa tanıtımı."
+  awards: "Türkiye’de nöroşirürji alanında doçent ve profesör unvanlarını alan ilk kadın olan Prof. Dr. Nurperi Gazioğlu, bu unvanların yanı sıra İtalyan Nöroşirürji Derneği’nin (SINCh) “Socio Benemerito” Liyakat Madalyası ve Türk Üniversiteli Kadınlar Derneği’nin Bilim Alanında Önder Kadın Ödülü gibi ulusal ve uluslararası ödüllere layık görülmüştür."
   publications: "ÖRNEK: Makaleler, kitap bölümleri ve bildirilerin kısa tanıtımı."
   press: "ÖRNEK: Basında yer alan röportaj ve haberlerin kısa tanıtımı."
 ---

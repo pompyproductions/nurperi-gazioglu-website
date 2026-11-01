@@ -8,7 +8,12 @@ const t = getUi();
 const publications = (await getCollection("publications")).sort(
   (a, b) => b.data.year - a.data.year,
 );
-const types = ["makale", "kitap-bolum", "bildiri"] as const;
+// books and book chapters share one section
+const sections = [
+  { key: "makale", types: ["makale"] },
+  { key: "kitap-bolum", types: ["kitap", "kitap-bolum"] },
+  { key: "bildiri", types: ["bildiri"] },
+] as const;
 ---
 
 <BaseLayout
@@ -18,11 +23,11 @@ const types = ["makale", "kitap-bolum", "bildiri"] as const;
   <main>
     <h1>{t("publications.title")}</h1>
     {publications.length === 0 && <p>{t("placeholder")}</p>}
-    {types.map((type) => {
-      const entries = publications.filter(({ data }) => data.type === type);
+    {sections.map(({ key, types }) => {
+      const entries = publications.filter(({ data }) => (types as readonly string[]).includes(data.type));
       return entries.length > 0 && (
         <section>
-          <h2>{t(`publications.${type}` as UiKey)}</h2>
+          <h2>{t(`publications.${key}` as UiKey)}</h2>
           <PublicationList entries={entries} />
         </section>
       );

@@ -1,6 +1,9 @@
 {
   "title": "ÖRNEK Bildiri Başlığı İki",
-  "authors": "Örnek Yazar, A.; Test, C.",
+  "authors": [
+    "Örnek Yazar, A.",
+    "Test, C."
+  ],
   "source": "Örnek Uluslararası Kongresi",
   "year": 2017,
   "type": "bildiri"

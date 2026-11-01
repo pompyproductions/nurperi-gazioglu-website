@@ -17,15 +17,30 @@ const pages = defineCollection({
 
 const publications = defineCollection({
   loader: glob({ pattern: "**/*.json", base: "./src/content/publications" }),
-  schema: z.object({
-    title: z.string(),
-    authors: z.string(),
-    source: z.string(), // journal, book or proceedings
-    year: z.number().int(),
-    type: z.enum(["makale", "kitap-bolum", "bildiri"]),
-    link: z.string().url().optional(), // DOI or PubMed
-    selected: z.boolean().default(false), // listed on the Hakkında hub
-  }),
+  schema: z
+    .object({
+      title: z.string(),
+      authors: z.array(z.string()).min(1), // "Surname Initials", in citation order
+      source: z.string(), // journal or book title only
+      details: z.string().optional(), // "35(11), 2119–2126" or "Thieme; eds. …"
+      year: z.number().int(),
+      type: z.enum(["makale", "kitap", "kitap-bolum", "bildiri"]),
+      lang: z.enum(["tr", "en", "fr"]).default("en"), // language of the title
+      doi: z.string().regex(/^10\.\d{4,9}\/\S+$/).optional(), // bare DOI, no URL
+      pubmed: z.string().regex(/^\d+$/).optional(), // PMID
+      link: z.string().url().optional(), // only when neither DOI nor PMID exists
+      selected: z.boolean().default(false), // listed on the Hakkında hub
+      selectedOrder: z.number().int().optional(), // hub position; unordered ones follow, newest first
+    })
+    .strict() // a misspelt field fails the build instead of being ignored
+    .refine((p) => !p.link || (!p.doi && !p.pubmed), {
+      message: "link is only for entries without a DOI or PMID",
+      path: ["link"],
+    })
+    .refine((p) => p.selectedOrder === undefined || p.selected, {
+      message: "selectedOrder needs selected: true",
+      path: ["selectedOrder"],
+    }),
 });
 
 const awards = defineCollection({

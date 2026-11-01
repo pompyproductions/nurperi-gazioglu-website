@@ -15,8 +15,11 @@ const intro = (await getEntry("pages", "hakkinda"))!;
 const { Content } = await render(intro);
 
 // the hub lists only entries marked `selected: true`
+// manual order first (selectedOrder), then the rest newest first
+const last = Number.MAX_SAFE_INTEGER;
 const publications = (await getCollection("publications", ({ data }) => data.selected)).sort(
-  (a, b) => b.data.year - a.data.year,
+  (a, b) =>
+    (a.data.selectedOrder ?? last) - (b.data.selectedOrder ?? last) || b.data.year - a.data.year,
 );
 const awards = (await getCollection("awards", ({ data }) => data.selected)).sort(
   (a, b) => b.data.year - a.data.year,
@@ -58,7 +61,7 @@ const press = (await getCollection("press", ({ data }) => data.selected)).sort(
       </AboutBlock>
       <AboutBlock title={t("publications.title")} href={routes.publications} linkLabel={t("publications.more")}>
         <p>{intro.data.blocks?.publications ?? t("placeholder")}</p>
-        {publications.length > 0 && <PublicationList entries={publications} />}
+        {publications.length > 0 && <PublicationList entries={publications} maxAuthors={6} />}
       </AboutBlock>
       <AboutBlock title={t("press.title")} href={routes.press} linkLabel={t("press.more")}>
         <p>{intro.data.blocks?.press ?? t("placeholder")}</p>

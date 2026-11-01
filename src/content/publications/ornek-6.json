@@ -1,6 +1,8 @@
 {
   "title": "ÖRNEK Bildiri Başlığı Bir",
-  "authors": "Örnek Yazar, A.",
+  "authors": [
+    "Örnek Yazar, A."
+  ],
   "source": "Örnek Ulusal Kongresi",
   "year": 2022,
   "type": "bildiri"

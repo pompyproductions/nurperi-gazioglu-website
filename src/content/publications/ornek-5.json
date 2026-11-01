@@ -1,6 +1,9 @@
 {
   "title": "ÖRNEK Kitap Başlığı",
-  "authors": "Örnek Yazar, A.; Deneme, B.",
+  "authors": [
+    "Örnek Yazar, A.",
+    "Deneme, B."
+  ],
   "source": "Örnek Yayınevi",
   "year": 2014,
   "type": "kitap-bolum"

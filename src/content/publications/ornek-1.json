@@ -1,6 +1,15 @@
 {
-  "title": "ÖRNEK Makale Başlığı Bir",
-  "authors": "Örnek Yazar, A.; Deneme, B.",
+  "title": "Transsphenoidal surgery for pituitary adenomas in pediatric patients: a multicentric retrospective study",
+  "authors": [
+    "Locatelli D",
+    "Veiceschi P",
+    "Castelnuovo P",
+    "Tanrıöver N",
+    "Evliyaoğlu SO",
+    "Canaz H",
+    "Uğurlar D",
+    "Gazioğlu N"
+  ],
   "source": "Örnek Dergi",
   "year": 2023,
   "type": "makale",

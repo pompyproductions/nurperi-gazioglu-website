@@ -1,19 +1,53 @@
 ---
 import type { CollectionEntry } from "astro:content";
+import { getUi } from "../i18n/ui";
 
 interface Props {
   entries: CollectionEntry<"publications">[];
+  maxAuthors?: number; // longer author lists are cut to this many + "ve ark."
 }
 
-const { entries } = Astro.props;
+const t = getUi();
+const { entries, maxAuthors } = Astro.props;
+
+function authorList(authors: string[]) {
+  if (maxAuthors && authors.length > maxAuthors) {
+    return `${authors.slice(0, maxAuthors).join(", ")}, ${t("publications.etAl")}`;
+  }
+  return authors.join(", ");
+}
+
+const withStop = (title: string) => (/[.?!]$/.test(title) ? title : `${title}.`);
+
+function linksOf({ doi, pubmed, link }: CollectionEntry<"publications">["data"]) {
+  return [
+    doi && { label: t("publications.doi"), href: `https://doi.org/${doi}` },
+    pubmed && { label: t("publications.pubmed"), href: `https://pubmed.ncbi.nlm.nih.gov/${pubmed}/` },
+    link && { label: t("publications.link"), href: link },
+  ].filter((l): l is { label: string; href: string } => Boolean(l));
+}
 ---
 
 <ul class="entries">
-  {entries.map(({ data }) => (
-    <li>
-      <p>
-        {data.authors} ({data.year}). {data.link ? <a href={data.link}>{data.title}</a> : data.title}. <em>{data.source}</em>.
-      </p>
-    </li>
-  ))}
+  {entries.map(({ data }) => {
+    const links = linksOf(data);
+    return (
+      <li>
+        <p>
+          {authorList(data.authors)} ({data.year}). <span lang={data.lang}>{withStop(data.title)}</span>{" "}
+          <em>{data.source}</em>{data.details ? `, ${data.details}` : ""}.
+        </p>
+        {links.length > 0 && (
+          <p class="meta">
+            {links.map((l, i) => (
+              <>
+                {i > 0 && " · "}
+                <a href={l.href} rel="noopener">{l.label}</a>
+              </>
+            ))}
+          </p>
+        )}
+      </li>
+    );
+  })}
 </ul>

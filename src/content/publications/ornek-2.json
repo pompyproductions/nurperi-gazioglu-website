@@ -1,6 +1,9 @@
 {
   "title": "ÖRNEK Makale Başlığı İki",
-  "authors": "Örnek Yazar, A.; Test, C.",
+  "authors": [
+    "Örnek Yazar, A.",
+    "Test, C."
+  ],
   "source": "Örnek Tıp Dergisi",
   "year": 2021,
   "type": "makale",
