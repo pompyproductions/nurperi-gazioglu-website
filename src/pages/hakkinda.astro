@@ -1,14 +1,14 @@
 ---
 import { getCollection, getEntry, render } from "astro:content";
 import { Image } from "astro:assets";
-import BaseLayout from "../../layouts/BaseLayout.astro";
-import AboutBlock from "../../components/AboutBlock.astro";
-import PublicationList from "../../components/PublicationList.astro";
-import AwardList from "../../components/AwardList.astro";
-import PressList from "../../components/PressList.astro";
-import photo from "../../assets/photo-ng-01.jpg";
-import { getUi } from "../../i18n/ui";
-import { routes } from "../../i18n/routes";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import AboutBlock from "../components/AboutBlock.astro";
+import PublicationList from "../components/PublicationList.astro";
+import AwardList from "../components/AwardList.astro";
+import PressList from "../components/PressList.astro";
+import photo from "../assets/photo-ng-01.jpg";
+import { getUi } from "../i18n/ui";
+import { routes } from "../i18n/routes";
 
 const t = getUi();
 const intro = (await getEntry("pages", "hakkinda"))!;
@@ -45,12 +45,13 @@ const press = (await getCollection("press"))
             ))}
           </ol>
         )}
+        <a class="more" href={routes.cv}>Detaylı özgeçmiş için tıklayın</a>
       </div>
     </div>
     <div class="blocks">
-      <AboutBlock title={t("about.cv")} href={routes.cv} linkLabel={t("about.cv.more")}>
+      <!-- <AboutBlock title={t("about.cv")} href={routes.cv} linkLabel={t("about.cv.more")}>
         <p>{intro.data.blocks?.cv ?? t("placeholder")}</p>
-      </AboutBlock>
+      </AboutBlock> -->
       <AboutBlock title={t("about.awards")} href={routes.awards} linkLabel={t("about.awards.more")}>
         <p>{intro.data.blocks?.awards ?? t("placeholder")}</p>
         {awards.length > 0 && <AwardList entries={awards} />}
