@@ -4,7 +4,7 @@ export const routes = {
   about: "/hakkinda",
   cv: "/hakkinda/ozgecmis",
   awards: "/hakkinda/oduller",
-  publications: "/hakkinda/yayinlar",
+  publications: "/yayinlar",
   press: "/hakkinda/basin",
   health: "/bilgi-kosesi",
   contact: "/iletisim",

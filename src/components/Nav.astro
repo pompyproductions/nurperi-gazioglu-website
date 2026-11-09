@@ -5,8 +5,9 @@ import { routes } from "../i18n/routes";
 const t = getUi();
 const items: { key: UiKey; href: string }[] = [
   { key: "nav.home", href: routes.home },
-  { key: "nav.about", href: routes.about },
   { key: "nav.health", href: routes.health },
+  { key: "nav.about", href: routes.about },
+  { key: "nav.publications", href: routes.publications },
   { key: "nav.contact", href: routes.contact },
 ];
 const current = Astro.url.pathname.replace(/(.)\/$/, "$1");
@@ -22,7 +23,7 @@ function ariaCurrent(href: string) {
 <nav aria-label={t("nav.label")}>
   <ul>
     {items.map(({ key, href }) => (
-      <li>
+      <li class={key=="nav.home" ? "hide-mid" : undefined}>
         <a href={href} aria-current={ariaCurrent(href)}>{t(key)}</a>
       </li>
     ))}

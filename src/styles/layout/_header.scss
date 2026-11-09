@@ -32,21 +32,31 @@ header {
 
   nav a {
     font-size: 1rem;
-    padding: .4em .8em;
-    border-radius: .8em;
     @include break-at("tablet-s") {
       font-size: 1.1rem;
+      padding: .4em .8em;
+      border-radius: .8em;
     }
     &:hover {
-      outline: 1px solid var(--white);
-      text-decoration: none;
+      @include break-at("tablet-s") {
+        outline: 1px solid var(--white);
+        text-decoration: none;
+      }
     }
     &[aria-current="page"],
     &[aria-current="true"] {
-      /* text-decoration: underline var(--violet); */
-      text-underline-offset: .25em;
-      background: #fdfdfd80;  
-      box-shadow: inset 0px 1px 1px var(--lilac);
+      text-decoration: underline var(--violet);
+      @include break-at("tablet-s") {
+        text-decoration: none;
+        background: #fdfdfd80;  
+        box-shadow: inset 0px 1px 1px var(--lilac);
+      }
+    }
+  }
+  nav li.hide-mid {
+    display: none;
+    @include break-at("mobile-l") {
+      display: block;
     }
   }
 }

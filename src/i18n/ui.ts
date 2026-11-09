@@ -7,6 +7,7 @@ export const ui = {
     "nav.label": "Ana menü",
     "nav.home": "Ana Sayfa",
     "nav.about": "Hakkında",
+    "nav.publications": "Yayınlar",
     "nav.health": "Bilgi Köşesi",
     "nav.contact": "İletişim",
     "contact.heading": "Randevu Bilgileri",

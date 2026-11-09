@@ -35,6 +35,7 @@ main {
   gap: var(--outer-gap-y) var(--outer-gap-x);
   grid-auto-rows: min-content;
   align-content: start;
+  hyphens: auto;
 
   &.home {
     @include break-at("tablet-m") {
