@@ -31,7 +31,7 @@ body {
 
 main {
   display: grid;
-  padding: 0 var(--padding-x) var(--padding-y) var(--padding-x);
+  padding: 0 var(--padding-x);
   gap: var(--outer-gap-y) var(--outer-gap-x);
   grid-auto-rows: min-content;
   align-content: start;

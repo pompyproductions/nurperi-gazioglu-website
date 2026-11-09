@@ -1,6 +1,7 @@
 footer {
   padding: var(--padding-y) var(--padding-x);
   font-size: .9rem;
+  border-top: 1px dotted var(--white);
 
   ul {
     display: flex;

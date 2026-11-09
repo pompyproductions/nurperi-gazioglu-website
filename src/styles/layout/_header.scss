@@ -8,8 +8,16 @@ header {
   justify-content: space-between;
   gap: var(--outer-gap-y) var(--outer-gap-x);
 
-  .brand:hover {
-    text-decoration: none;
+  .brand {
+    display: flex;
+    gap: inherit;
+    &:hover {
+      text-decoration: none;
+    }
+    @include break-at("pc-m") {
+      flex-direction: column;
+      gap: var(--inner-gap-y) var(--inner-gap-x);
+    }
   }
 
   svg {
