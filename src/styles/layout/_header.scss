@@ -19,18 +19,26 @@ header {
   nav ul {
     display: flex;
     flex-wrap: wrap;
-    gap: .25rem 1.25rem;
+    gap: .8em;
   }
 
   nav a {
     font-size: 1rem;
+    padding: .4em .8em;
+    border-radius: .8em;
     @include break-at("tablet-s") {
       font-size: 1.1rem;
     }
+    &:hover {
+      outline: 1px solid var(--white);
+      text-decoration: none;
+    }
     &[aria-current="page"],
     &[aria-current="true"] {
-      text-decoration: underline var(--violet);
+      /* text-decoration: underline var(--violet); */
       text-underline-offset: .25em;
+      background: #fdfdfd80;  
+      box-shadow: inset 0px 1px 1px var(--lilac);
     }
   }
 }
